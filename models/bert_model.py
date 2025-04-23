@@ -1,7 +1,12 @@
+import os
+os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"  # Hides INFO and WARNING logs
+os.environ["TF_ENABLE_ONEDNN_OPTS"] = "0"  # You already have this one
+
+
 from transformers import AutoTokenizer, AutoModelForSequenceClassification, Trainer, TrainingArguments
 from sklearn.preprocessing import LabelEncoder
-from datasets import Dataset
-import torch
+from datasets import Dataset # type: ignore
+import torch # type: ignore
 
 def train_bert_model(df):
     model_name = "distilbert-base-uncassed"
