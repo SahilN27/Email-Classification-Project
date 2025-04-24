@@ -1,4 +1,17 @@
+from fastapi import FastAPI
+from pydantic import BaseModel
+from utils.pipeline import classify_email
+import uvicorn
+
+app = FastAPI()
+
+class EmailRequest(BaseModel):
+    email_body: str
+
+@app.post("/classify_email")
+def classify(email: EmailRequest):
+    result = classify_email(email.email_body)
+    return result
+
 if __name__ == "__main__":
-    print("Welcome to the Email Classifier Project!")
-    print("This is the main entry point of the application.")
-    #sgit remote add origin https://github.com/SahilN27/Email class.git
+    uvicorn.run("app:app", host="0.0.0.0", port=8000, reload=True)

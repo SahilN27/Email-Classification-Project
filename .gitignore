@@ -1,3 +1,30 @@
 venv/
 __pycache__/
 *.pyc
+
+# Ignore virtual environment
+venv/
+.venv/
+
+# VS Code settings
+.vscode/
+.vs/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore system-specific files
+.DS_Store
+*.log
+
+# Ignore Jupyter notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore datasets and models (optional)
+*.h5
+*.ckpt
+*.pt
+*.onnx
